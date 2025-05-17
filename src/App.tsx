@@ -15,6 +15,8 @@ export default function App() {
   const navigate = useNavigate();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const [email, setEmail] = React.useState("");
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
@@ -31,6 +33,12 @@ export default function App() {
       clearTimeout(timeoutId);
     };
   }, [onOpen]);
+
+  useEffect(() => {
+    if (email.length == 3) {
+      onOpen();
+    }
+  }, [email, onOpen]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen relative">
@@ -76,6 +84,8 @@ export default function App() {
               name="email"
               placeholder="Enter your email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <Select
