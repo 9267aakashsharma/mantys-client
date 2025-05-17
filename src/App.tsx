@@ -64,6 +64,8 @@ export default function App() {
                 }
               }}
               label="Name"
+              className="name"
+              id="name"
               labelPlacement="outside"
               name="name"
               placeholder="Enter your name"
@@ -80,6 +82,8 @@ export default function App() {
                 }
               }}
               label="Email"
+              id="email"
+              className="email"
               labelPlacement="outside"
               name="email"
               placeholder="Enter your email"
@@ -89,7 +93,6 @@ export default function App() {
             />
 
             <Select
-              isRequired
               label="Country"
               labelPlacement="outside"
               name="country"
@@ -103,9 +106,8 @@ export default function App() {
             </Select>
 
             <Checkbox
-              isRequired
               classNames={{
-                label: "text-small",
+                label: "text-small agreement-checkbox",
               }}
               name="terms"
               validationBehavior="aria"
@@ -115,7 +117,12 @@ export default function App() {
             </Checkbox>
 
             <div className="flex gap-4">
-              <Button className="w-full" color="primary" type="submit">
+              <Button
+                id="submit-btn"
+                className="w-full submit-btn"
+                color="primary"
+                type="submit"
+              >
                 Submit
               </Button>
             </div>
