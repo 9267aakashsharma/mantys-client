@@ -15,6 +15,7 @@ export default function App() {
   const navigate = useNavigate();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const [isModalOpenedOnce, setIsModalOpenedOnce] = React.useState(false);
   const [email, setEmail] = React.useState("");
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,10 +26,11 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (email.length == 3) {
+    if (email.length == 3 && !isModalOpenedOnce) {
+      setIsModalOpenedOnce(true);
       onOpen();
     }
-  }, [email, onOpen]);
+  }, [isModalOpenedOnce, email, onOpen]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen relative">
