@@ -25,16 +25,6 @@ export default function App() {
   };
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      onOpen();
-    }, 2000);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [onOpen]);
-
-  useEffect(() => {
     if (email.length == 3) {
       onOpen();
     }
