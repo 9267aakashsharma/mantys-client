@@ -64,7 +64,9 @@ export default function App() {
                 }
               }}
               label="Name"
-              className="name"
+              classNames={{
+                input: "name",
+              }}
               id="name"
               labelPlacement="outside"
               name="name"
@@ -83,7 +85,9 @@ export default function App() {
               }}
               label="Email"
               id="email"
-              className="email"
+              classNames={{
+                input: "email",
+              }}
               labelPlacement="outside"
               name="email"
               placeholder="Enter your email"
